@@ -44,6 +44,15 @@ class _Jogo2048HomePageState extends State<Jogo2048HomePage> {
             const SizedBox(height: 10),
             Text(status, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 20),
+
+            // Controles de movimentação AGORA ficam antes da grade
+            _buildControles(),
+            const SizedBox(height: 20),
+
+            _buildGrid(),
+            const SizedBox(height: 20),
+
+            // Botões de nível AGORA ficam após a grade
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -52,10 +61,6 @@ class _Jogo2048HomePageState extends State<Jogo2048HomePage> {
                 ElevatedButton(onPressed: () => _mudarNivel(6), child: const Text('Nível Difícil')),
               ],
             ),
-            const SizedBox(height: 20),
-            _buildGrid(),
-            const SizedBox(height: 20),
-            _buildControles(),
           ],
         ),
       ),
@@ -73,7 +78,7 @@ class _Jogo2048HomePageState extends State<Jogo2048HomePage> {
           return Container(
             margin: const EdgeInsets.all(2),
             color: Colors.grey[300],
-            child: const Center(child: Text('1')), // apenas exemplo, pode ser dinâmico
+            child: const Center(child: Text('1')), // Exemplo, substituir por lógica real
           );
         },
       ),
